@@ -1,0 +1,5 @@
+CREATE DATABASE School;
+
+USE School;
+
+DROP TABLE Student;
