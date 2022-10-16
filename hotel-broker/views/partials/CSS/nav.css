@@ -1,0 +1,23 @@
+div.navBar {
+  background-color: #4f7dbd;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+input.menuBtn {
+  width: 24px;
+  height: 24px;
+}
+h1 {
+  color: aliceblue;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+div.profileDetails {
+  display: none;
+}
+a.profile:hover .profileDetails {
+  display: block;
+}

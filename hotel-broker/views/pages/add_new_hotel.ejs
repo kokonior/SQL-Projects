@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <div>
+      <% if (role==="Owner"){%>
+      <div><% include ../partials/owner_nav.ejs%></div>
+      <%}else if(role==="Broker"){%>
+      <div><% include ../partials/broker_nav.ejs%></div>
+      <%}else if(role==="Customer"){%>
+      <div><%include ../partials/customer_nav.ejs%></div>
+      <%}%>
+    </div>
+    <div>
+      <h2>Add New Hotel</h2>
+      <form method="post" name="add_hotel_form">
+        <div class="input-group">
+          <input type="text" name="name" placeholder="Hotel Name" required />
+        </div>
+
+        <div class="input-group">
+          <input type="text" name="branch" placeholder="Branch" required />
+        </div>
+
+        <div class="input-group">
+          <input type="text" name="location" placeholder="Address" required />
+        </div>
+
+        <div class="input-group"><!-- insert image? --></div>
+
+        <div class="input-group">
+          <button type="submit" class="btn" name="addHotel">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

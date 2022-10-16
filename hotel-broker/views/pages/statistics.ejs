@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Statistics</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <div>
+      <% if (role==="Owner"){%>
+      <div><% include ../partials/owner_nav.ejs%></div>
+      <%}else if(role==="Broker"){%>
+      <div><% include ../partials/broker_nav.ejs%></div>
+      <%}else if(role==="Customer"){%>
+      <div><%include ../partials/customer_nav.ejs%></div>
+      <%}%>
+    </div>
+    <div style="margin-top:50px">
+        <h2 style="margin-left:10px">Statistics</h2>
+        <% for(var i=0; i<hotels.length ; i++){%>
+            <li class="list-group-item">
+                <div class="card text-white bg-dark m-2 col-sm-6" style="max-width: 99%;">
+                    <div class="card-header">
+                        <h3>
+                            <%=hotels[i].name%>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"> Hotel branch</h5>
+                        <p class="card-text"> Payment : <%= hotels[i].cash%></p>
+                    </div>
+                </div>
+            </li>
+            <%}%>
+    </div>
+  </body>
+</html>

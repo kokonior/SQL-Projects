@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Checkins</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        <% if (role==="Owner"){%>
+            <div>
+                <% include ../partials/owner_nav.ejs%>
+            </div>
+            <%}else if(role==="Broker"){%>
+                <div>
+                    <% include ../partials/broker_nav.ejs%>
+                </div>
+                <%}else if(role==="Customer"){%>
+                    <div>
+                        <%include ../partials/customer_nav.ejs%>
+                    </div>
+                    <%}%>
+    </div> <div style="margin-top:55px">
+        <h2>CheckIn</h2>
+        <div>
+            <div class="list-group">
+                <% for(var i=0; i<reservations.length ; i++){%>
+                <a class="list-group-item list-group-item-action list-group-item-dark">
+                        <div>
+                            <h3><%=reservations[i].number%></h3>
+                            <form method="post" name="checkIn">
+                                <button type="submit" class="btn btn-success">CheckIn</button>
+                            </form>
+                        </div>
+                    </a>
+                    <%}%>
+                    </div>
+        </div>
+
+</body>
+
+</html>

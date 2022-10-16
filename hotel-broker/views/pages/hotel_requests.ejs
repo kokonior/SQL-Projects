@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>hotelRequests</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div>
+        <% if (role==="Owner"){%>
+            <div>
+                <% include ../partials/owner_nav.ejs%>
+            </div>
+            <%}else if(role==="Broker"){%>
+                <div>
+                    <% include ../partials/broker_nav.ejs%>
+                </div>
+                <%}else if(role==="Customer"){%>
+                    <div>
+                        <%include ../partials/customer_nav.ejs%>
+                    </div>
+                    <%}%>
+    </div>
+        <input type="text" placeholder="Search..">
+        <div>
+            <ul>
+                <% for(var i=0; i<hotelRequests.length ; i++){%>
+                    <li>
+                        <div>
+                            <h3>hotelRequests[i]</h3>
+                            <input type="button">approve<input>
+                            <input type="button">
+                            deny
+                            <input>
+                        </div>
+                    </li>
+                    <%}%>
+            </ul>
+        </div>
+
+</body>
+
+</html>

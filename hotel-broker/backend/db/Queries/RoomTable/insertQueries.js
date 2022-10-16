@@ -1,0 +1,1 @@
+exports.addRoom = `INSERT INTO Room SET ?`;

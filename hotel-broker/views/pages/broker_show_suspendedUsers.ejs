@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+<body>
+    <div>
+        <% if (role==="Owner"){%>
+            <div>
+                <% include ../partials/owner_nav.ejs%>
+            </div>
+            <%}else if(role==="Broker"){%>
+                <div>
+                    <% include ../partials/broker_nav.ejs%>
+                </div>
+                <%}else if(role==="Customer"){%>
+                    <div>
+                        <%include ../partials/customer_nav.ejs%>
+                    </div>
+                    <%}%>
+    </div>
+
+<div style="margin-top: 55px;">
+    <h2 style="margin-left:10px">Show Suspended Users</h2>
+    <ul class="list-group" style="width: 98%">
+        <%for(var i=0 ; i<users.length ; i++){%>
+        <li class="list-group-item">
+            <div class="card text-white bg-dark m-2 col-sm-6" style="max-width: 99%;">
+                <div class="card-body">
+                    <h3 class="card-title">Username: <%=users[i].Username%>
+                    </h3>
+                    <p class="card-text">To be done</p>
+                    <form method="post" action="/broker/unSuspendUser/<%=users[i].Username%>">
+                        <button type="submit" class="btn btn-primary" style="width:100px">unSuspend</button>
+                    </form>
+                </div>
+            </div>
+        </li>
+        <%}%>
+    </ul>
+>>>>>>> e2a1adbd085c05b7d0b86c9d48d34bbe695bc03b
+</div>
+</body>
+</html>

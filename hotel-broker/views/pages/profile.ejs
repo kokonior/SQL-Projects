@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Profile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div>
+      <% if (user.Role==="Owner"){%>
+      <div><% include ../partials/owner_nav.ejs%></div>
+      <%}else if(user.Role==="Broker"){%>
+      <div><% include ../partials/broker_nav.ejs%></div>
+      <%}else if(user.Role==="Customer"){%>
+      <div><%include ../partials/customer_nav.ejs%></div>
+      <%}%>
+    </div>
+    <div style="margin-top:55px">
+      <h2>User Profile</h2>
+      <form
+        method="get"
+        action="/profile/edit_profile"
+        style="margin-left: 83.5%"
+      >
+        <button type="submit" class="btn btn-dark" style="width:200px">
+          Edit
+        </button>
+      </form>
+      <div class="card text-white bg-dark mb-3" style="margin: 5px 20px 20px;">
+        <div class="card-header"><%=user.Name%></div>
+        <div class="card-body">
+          <p class="card-text">Username: <%=user.Username%></p>
+          <p class="card-text">Email: <%=user.Email%></p>
+          <p class="card-text">Phone: <%=user.Phone%></p>
+          <p class="card-text">Bdate: <%=user.Bdate%></p>
+          <p class="card-text">Address: <%=user.Address%></p>
+          <p class="card-text">Role: <%=user.Role%></p>
+        </div>
+      </div>
+      <form
+        method="get"
+        action="/profile/logout"
+        style="margin-left:20px; margin-top: 5px"
+      >
+        <button type="submit" class="btn btn-dark">Logout</button>
+      </form>
+    </div>
+  </body>
+</html>

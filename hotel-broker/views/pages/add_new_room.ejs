@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <div>
+      <% if (role==="Owner"){%>
+      <div>
+        <% include ../partials/owner_nav.ejs%>
+      </div>
+      <%}else if(role==="Broker"){%>
+      <div>
+        <% include ../partials/broker_nav.ejs%>
+      </div>
+      <%}else if(role==="Customer"){%>
+      <div>
+        <%include ../partials/customer_nav.ejs%>
+      </div>
+      <%}%>
+    </div>
+    <div style="margin-top: 55px;">
+      <h2>Add Room</h2>
+      <div style="margin-left:15px">
+        <label style="margin-right:20px"> Type of room to be added: </label>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="single"
+            value="single"
+            onclick="javascript:yesnoCheck();"
+          />
+          <label class="form-check-label" for="inlineRadio1">Single</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="double"
+            value="double"
+            onclick="javascript:yesnoCheck();"
+          />
+          <label class="form-check-label" for="inlineRadio2">Double</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="triple"
+            value="triple"
+            onclick="javascript:yesnoCheck();"
+          />
+          <label class="form-check-label" for="inlineRadio3">Triple</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="other"
+            onclick="javascript:yesnoCheck();"
+          />
+          <label class="form-check-label" for="inlineRadio3">Other rooms</label>
+        </div>
+      </div>
+
+      <div style="position: relative; z-index: 0; width: 100%">
+      <div id="ifOther" style="visibility:hidden; position: absolute; z-index: 1; width: 100%">
+        <form method="post" action="" name="otherForm" style="margin:100px">
+          <div class="form-group row">
+            <label for="otherRoomName" class="col-sm-2 col-form-label"
+              >Room Name:
+            </label>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                name="otherRoomName"
+                class="form-control"
+                placeholder="Room name"
+                id="otherRoomName"
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-dark mb-2">Submit</button>
+          </div>
+        </form>
+      </div>
+
+    <div id="room" style="visibility:hidden;position: absolute; z-index: 2; width:100%">
+        <form method="post" action="/owner/<%=hotelName%>/<%=hotelBranch%>/addRoom" name="otherForm" style="margin:100px">
+            <div class="form-group row">
+                <label for="roomNumber" class="col-sm-2 col-form-label">Room Type:
+                </label>
+                <div class="col-sm-10">
+                    <input type="text" name="type" class="form-control"  id="roomType" readonly/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="roomNumber" class="col-sm-2 col-form-label">Room Number:
+                </label>
+                <div class="col-sm-10">
+                    <input type="number" name="roomNumber" class="form-control" placeholder="Room Number" id="roomNumber"
+                        required />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="price" class="col-sm-2 col-form-label">Price:
+                </label>
+                <div class="col-sm-10">
+                    <input type="text" name="price" class="form-control" placeholder="price" id="price"
+                        required />
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-dark mb-2">Submit</button>
+            </div>
+        </form>
+    </div>
+    </div>
+  </body>
+  <script>
+    function yesnoCheck() {
+      if (document.getElementById("other").checked) {
+        document.getElementById("ifOther").style.visibility = "visible";
+        document.getElementById("room").style.visibility = "hidden";
+
+      } else {
+          document.getElementById("ifOther").style.visibility = "hidden";
+          document.getElementById("room").style.visibility = "visible";
+          if (document.getElementById("single").checked) {
+              document.getElementById("roomType").value = "single";
+          }
+          if (document.getElementById("double").checked) {
+              document.getElementById("roomType").value = "double";
+          }
+          if (document.getElementById("triple").checked){
+              document.getElementById("roomType").value = "triple";
+          }
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,6 @@
+.card {
+  dispaly: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  margin: 10px;
+}

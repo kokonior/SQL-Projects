@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brocker</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="nav"><% include ../partials/nav%></div>
+    <div class="card" style="margin-top: 50px">
+      <div class="card-header">Broker</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <form method="get" action="/broker/showHotels" class="card">
+            <button class="btn btn-primary" type="submit">Show Hotels</button>
+          </form>
+        </li>
+        <li class="list-group-item">
+          <form class="card" method="get" action="/broker/showHotelRequests">
+            <button class="btn btn-primary" type="submit">
+              Hotels Requests
+            </button>
+          </form>
+        </li>
+        <li class="list-group-item">
+          <form method="get" action="/broker/showSuspendedHotels" class="card">
+            <button type="submit" class="btn btn-primary">
+              Suspended Hotels
+            </button>
+          </form>
+        </li>
+        <li class="list-group-item">
+          <form method="get" action="/broker/classAUsers" class="card">
+            <button class="btn btn-primary" type="submit">ClassA Users</button>
+          </form>
+        </li>
+        <li class="list-group-item">
+          <form method="get" action="/broker/showAllUsers" class="card">
+            <button type="submit" class="btn btn-primary">Users</button>
+          </form>
+        </li>
+        <li class="list-group-item">
+          <form method="get" action="/broker/showSuspendedUsers" class="card">
+            <button type="submit" class="btn btn-primary">
+              Suspended Users
+            </button>
+          </form>
+        </li>
+        <li class="list-group-item">
+          <form method="get" action="/profile" class="card">
+            <button type="submit" class="btn btn-primary">Profile</button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

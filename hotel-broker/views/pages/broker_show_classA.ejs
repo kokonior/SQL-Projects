@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ClassA Users</title>
+</head>
+<body>
+	<div>
+		<% if (role==="Owner"){%>
+			<div>
+				<% include ../partials/owner_nav.ejs%>
+			</div>
+			<%}else if(role==="Broker"){%>
+				<div>
+					<% include ../partials/broker_nav.ejs%>
+				</div>
+				<%}else if(role==="Customer"){%>
+					<div>
+						<%include ../partials/customer_nav.ejs%>
+					</div>
+					<%}%>
+	</div>
+	<div>
+		<%for(var i=0 ; i<classAUsers.length ; i++){%>
+			<p><%i+1%>-Username:<%classAUsers[i].Username%></p>
+		<%}%>
+	</div>
+</body>
+</html>

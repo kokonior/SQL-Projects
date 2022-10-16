@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  background-image: url("../../static/home_background.jpg");
+}
+input.btn {
+  background: #4f7dbd;
+  text-align: center;
+  color: aliceblue;
+}
+div.Paragraph {
+  background-color: aliceblue;
+  opacity: 0.7;
+}
