@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <nav
+        class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"
+        style="width: 100%;"
+      >
+        <div>
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapseExample"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <form method="get" action="/">
+                    <button class="btn btn-dark" type="submit" href="#">Home</button>
+                </form>
+            </li>
+            </li>
+            <li class="nav-item">
+                <form method="get" action="/profile">
+                    <button class="btn btn-dark" type="submit" href="#">Profile</button>
+                </form>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-left bg-dark">
+      <div class="row align-items-center justify-content-center">
+        <div class="collapse bg-inverse" id="collapseExample">
+          <div class="nav navbar-nav navbar-left">
+            <div
+              style="margin-top:50px;margin-left: 40px;"
+              class="row align-items-center justify-content-center"
+            >
+              <form
+                method="get"
+                action="/owner"
+                class="card"
+                style="margin-right: 15px"
+              >
+                <button class="btn btn-dark" type="submit">MY Hotels</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>

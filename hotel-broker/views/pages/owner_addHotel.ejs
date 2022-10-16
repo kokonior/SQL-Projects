@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+    />
+</head>
+<body>
+<% include ../partials/nav.ejs%>
+<div style="margin-top:55px">
+    <h2>Add Hotel</h2>
+    <form
+            method="post"
+            action="/owner/addHotel"
+            name="addHotel_form"
+            class="form-group"
+            style="margin:5%"
+    >
+        <div class="input-group mb-3">
+            <label for="Hotel Name" class="col-sm-2 col-form-label">Hotel Name</label>
+            <input
+                    type="text"
+                    name="hotelName"
+                    class="form-control"
+                    placeholder="Hotel Name"
+                    aria-label="Hotel Name"
+                    aria-describedby="basic-addon1"
+                    id="Hotel Name"
+                    required
+            />
+        </div>
+        <div class="input-group mb-3">
+            <label for="Hotel Branch" class="col-sm-2 col-form-label">Hotel Branch</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    name="hotelBranch"
+                    placeholder="Hotel Branch"
+                    aria-label="Hotel Branch"
+                    aria-describedby="basic-addon3"
+                    id="Hotel Branch"
+                    required
+            />
+        </div>
+
+        <div class="input-group mb-3">
+            <label for="Hotel Location" class="col-sm-2 col-form-label">Location</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    name="hotelLocation"
+                    placeholder="Hotel Location"
+                    aria-label="Recipient's username"
+                    aria-describedby="basic-4"
+                    id="Hotel Location"
+                    required
+            />
+        </div>
+
+        <div class="input-group mb-3">
+            <label for="Premium" class="col-sm-2 col-form-label"
+            >Premium Hotel</label
+            >
+
+            <input
+                    type="text"
+                    class="form-control"
+                    name="Premium"
+                    aria-describedby="basic-addon5"
+                    id="Premium"
+                    required
+            />
+        </div>
+        <div class="invalid-feedback">You must agree before submitting.</div>
+        <div class="input-group">
+            <button type="submit" class="btn btn-primary" style="width:200px">
+                Add
+            </button>
+        </div>
+    </form>
+</div>
+</body>

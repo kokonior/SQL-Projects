@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Past Reservation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div>
+        <% if (role==="Owner"){%>
+            <div>
+                <% include ../partials/owner_nav.ejs%>
+            </div>
+            <%}else if(role==="Broker"){%>
+                <div>
+                    <% include ../partials/broker_nav.ejs%>
+                </div>
+                <%}else if(role==="Customer"){%>
+                    <div>
+                        <%include ../partials/customer_nav.ejs%>
+                    </div>
+                    <%}%>
+    </div>
+    <div style="margin-top: 55px;">
+        <h2 style="margin-left:10px">My Reservations</h2>
+        <ul>
+            <% for(var i=0; i<reservations.length ; i++){%>
+                <li class="list-group-item">
+                    <div class="card text-white bg-dark m-2 col-sm-6" style="max-width: 99%;">
+                        <div class="card-header">
+                            <h3><%=reservations[i].number%></h3>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"> Some info</h5>
+                            <p class="card-text">Other info</p>
+                        </div>
+                        <% if(reservations[i].isChecked_in == 0) {%>
+                        <form method="get" action="/owner/addHotel" style="margin-bottom:5px">
+                            <button type="submit" class="btn btn-primary">Cancel Reservation</button>
+                        </form>
+                        <%}%>
+                    </div>
+                </li>
+            <%}%>
+        </ul>
+    </div>
+
+</body>
+
+</html>

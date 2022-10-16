@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=hotelBranch%> Branch</title>
+    <meta charset="UTF-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous" />
+</head>
+
+<body>
+<div>
+    <% if (role==="Owner"){%>
+    <div>
+        <% include ../partials/owner_nav.ejs%>
+    </div>
+    <%}else if(role==="Broker"){%>
+    <div>
+        <% include ../partials/broker_nav.ejs%>
+    </div>
+    <%}else if(role==="Customer"){%>
+    <div>
+        <%include ../partials/customer_nav.ejs%>
+    </div>
+    <%}%>
+</div>
+<div style="margin-top: 55px; overflow-x: hidden">
+    <h2 style="margin-left:10px">Rooms</h2>
+    <div class="btn-group" style="margin-left:80%">
+        <form method="get" action="/owner/<%=hotelName%>/<%=hotelBranch%>/reservationRequests">
+            <button type="submit" class="btn btn-dark" style="width:100px">Reservation Requests</button>
+        </form>
+    <form method="get" action="/owner/<%=hotelName%>/<%=hotelBranch%>/addRoom">
+        <button type="submit" class="btn btn-dark" style="width:100px">Add Room</button>
+    </form>
+    <form method="get" action="/owner/<%=hotelName%>/<%=hotelBranch%>/editHotel">
+        <button type="submit" class="btn btn-dark" style="margin-left:5px; width:100px">Edit Hotel</button>
+    </form>
+    </div>
+    <ul class="list-group" style="width: 98%">
+    <div class="row" style="margin-left:15%;">
+        <% for(var i=0; i<rooms.length ; i++){%>
+            <% if(rooms[i].isBooked === true){%>
+                <div class="card text-white bg-dark m-2 col-sm-6" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <%=rooms[i].Number%>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Type: <%=rooms[i].Type%></h5>
+                        <p class="card-text">Price: <%=rooms[i].Price%>$</p>
+                        <form method="post" name="bookRoom" action="<%=rooms[i].hotelbranch%>/<%=rooms[i].number%>">
+                            <button type="submit" class="btn btn-primary">Unbook</button>
+                        </form>
+                    </div>
+                </div>
+                <%} else {%>
+                    <div class="card text-black bg-light m-2 col-sm-6" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <%=rooms[i].Number%>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Type: <%=rooms[i].Type%></h5>
+                        <p class="card-text">Price: <%=rooms[i].Price%>$</p>
+                        <form method="post" name="bookRoom" action="<%=rooms[i].hotelbranch%>/<%=rooms[i].number%>">
+                            <button type="submit" class="btn btn-primary">Book</button>
+                        </form>
+                    </div>
+                </div>
+                <%}%>
+        <%}%>
+        </div>
+</div>
+</body>
+</html>

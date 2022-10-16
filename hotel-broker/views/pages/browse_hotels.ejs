@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Hotels</title>
+  <meta charset="UTF-8" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous" />
+</head>
+
+<body>
+<div>
+  <% if (role==="Owner"){%>
+    <div>
+      <% include ../partials/owner_nav.ejs%>
+    </div>
+  <%}else if(role==="Broker"){%>
+    <div>
+      <% include ../partials/broker_nav.ejs%>
+    </div>
+  <%}else if(role==="Customer"){%>
+    <div>
+      <%include ../partials/customer_nav.ejs%>
+    </div>
+  <%}%>
+</div>
+<div style="margin-top: 55px;">
+
+  <h2>Hotels</h2>
+  <form class="form-inline" method="post" name="searchHotel" action="">
+    <div class="form-group row" style="width:80%">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Search For Hotels:</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Search..." style="width:100%">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-left:10px">Search</button>
+  </form>
+  <ul class="list-group" style="width: 98%">
+    <% for(var i=0; i<hotels.length ; i++){%>
+    <li class="list-group-item" >
+      <%if(hotels[i].isPremium===1){%>
+      <div class="card text-white bg-dark m-2 col-sm-6" style="max-width: 99%;">
+          <div class="card-header">
+            <h3><a href="/owner/<%=hotels[i].Name%>/<%=hotels[i].Branch%>"><%=hotels[i].Name%></a></h3>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Branch: <%=hotels[i].Branch%></h5>
+            <p class="card-text">Hotel Location: <%=hotels[i].Location%></p>
+          </div>
+          <form method="get" action="/reservations/<%=hotels[i].Name%>/<%=hotels[i].Branch%>">
+            <button type="submit">Book</button>
+          </form>
+      </div>
+      <%}%>
+        <%if(hotels[i].isPremium===0){%>
+          <div class="card text-white bg-dark m-2 col-sm-6" style="max-width: 99%;"></div>
+          <div class="card-header">
+            <h3><a href="/owner/<%=hotels[i].Name%>/<%=hotels[i].Branch%>"><%=hotels[i].Name%></a></h3>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Branch: <%=hotels[i].Branch%></h5>
+            <p class="card-text">Hotel Location: <%=hotels[i].Location%></p>
+          </div>
+        <form method="get" action="/reservations/<%=hotels[i].Name%>/<%=hotels[i].Branch%>">
+            <button type="submit">Book</button>
+        </form>
+        <%}%>
+    </li>
+    <%}%>
+  </ul>
+</div>
+</body>
+</html>

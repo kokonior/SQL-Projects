@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rooms</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        <% if (role==="Owner"){%>
+            <div>
+                <% include ../partials/owner_nav.ejs%>
+            </div>
+            <%}else if(role==="Broker"){%>
+                <div>
+                    <% include ../partials/broker_nav.ejs%>
+                </div>
+                <%}else if(role==="Customer"){%>
+                    <div>
+                        <%include ../partials/customer_nav.ejs%>
+                    </div>
+                    <%}%>
+    </div>
+    <div style="margin-top:50px">
+        <h1>Rooms</h1>
+        <div class="row" style="margin-left:15% ">
+            <% for(var i=0; i<rooms.length ; i++){%>
+                <% if(rooms[i].isbooked === true){%>
+                <div class="card text-white bg-dark m-2 col-sm-6" style="max-width: 18rem;">
+                    <div class="card-header"><%=rooms[i].number%></div>
+                    <div class="card-body">
+                    <h3 class="card-title"> Customer Name</h3>
+                    <p class="card-text">Other Room Information.</p>
+                    <form method="post" name="bookRoom" action="<%=rooms[i].hotelbranch%>/<%=rooms[i].number%>">
+                          <button type="submit" class="btn btn-primary">Unbook</button>
+                    </form>
+                    </div>
+                </div>
+                
+                <%} else {%>
+                <div class="card text-white bg-primary m-2 col-sm-6" style="max-width: 18rem;">
+                    <div class="card-header"><%=rooms[i].number%></div>
+                    <div class="card-body">
+                        <h3 class="card-title"> Customer Name</h3>
+                        <p class="card-text">Other Room Information.</p>
+                    <form method="post" name="bookRoom" action="<%=rooms[i].hotelbranch%>/<%=rooms[i].number%>">
+                        <button type="submit" class="btn btn-primary" >Book</button>
+                    </form>
+                    </div>
+                </div>
+                <%}%>
+            <%}%>
+        </div>
+    </div>
+</body>
+</html>

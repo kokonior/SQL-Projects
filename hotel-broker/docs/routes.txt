@@ -1,0 +1,21 @@
+1.Home:{null}
+2.register:{user.post -> submit}
+3.login:{user. ->login}
+4.profile:{user.put ->edit}
+5.browseHotels:{hotel.get , room.get(/hotelId) -> ydos 3al branch w ya3ml reservation 3ashan ygeeb el se3r,
+  request.post(/hotel) ->lama ytak 3ala branch w ya3ml reservation} //hna na3ml pos lama bn7gz hotel wala la
+6.pastreservation:{request.get(/userId), request.put ->cancel}
+7.myhotel:{hotel.get(/userid), hotel.put ->premium & ->edit, hotel.post ->addNewHotel}
+8.reservationRequest:{request.get(/hotelid), reservation.post ->approve} //ehna hna bn post wala bna3mlo fo2 w hna ehh??
+9.rooms:{room.get , room.put(/roomId) ->clicked on a room to be reserved}
+10.checkIn:{reservation.put(/roomid) ->checkIn}
+11.checkout:{reservation.put(/roomid) ->checkout}
+12.userRequest:{user.put(/userid) ->approve} //questioned below owner
+13.allHotels:{hotel.get(/brockerID), hotel.put(/hoteId) ->suspend & ->activate}
+14.requests:{questioned below premium}
+15.statistics:{hotel.get(/brockerid)}
+
+
+
+when the user wants to get upgraded to be an owner how we will show them for the brocker??
+when the hotel wants to be premium how we will show them for the brocker??
